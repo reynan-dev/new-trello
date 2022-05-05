@@ -29,7 +29,12 @@ class EditController extends Controller
         ],);*/
 
         $user = User::findOrFail($id);
-        $user->name = $request->input('name');
+
+        if ($request->input('name') !== null && $request->input('name') !== $user->name){
+            $user->name = $request->input('name');
+            $user->save();
+                return redirect()->route('user.edit', $user->id);
+        }
 
 
         /*$request->validate([
