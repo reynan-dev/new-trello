@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="container" >
-    <div class="row justify-content-center" >
-        <div class="col-md-12" style="width: 60%; margin-top:13rem;">
+<div class="container" style="width:100%;">
+    <div class="row justify-content-center;"  style="width:100%;">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
