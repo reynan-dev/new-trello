@@ -23,8 +23,9 @@
 
     @include('layouts.navbar')
 
-    <div id="app" class="bg-image" style="background-image: url('https://www.codeur.com/tuto/wp-content/uploads/2022/01/pexels-roberto-nickson-2559941-1.jpg'); height: 87vh; width:100%; display: flex; align-items: center; justify-content: center;">
 
+    <div id="app" class="bg-image" style="background-image: url('https://www.codeur.com/tuto/wp-content/uploads/2022/01/pexels-roberto-nickson-2559941-1.jpg');
+            background-size:cover; height: 87vh; background-repeat:no-repeat;">
 
         <main class="py-4" style="width:60%;">
             @yield('content')

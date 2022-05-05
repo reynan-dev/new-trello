@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container" style="margin-top: 13rem;
+display: flex;
+justify-content: space-around;">
+    <div class="row justify-content-center;"  style="width:60%;">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
@@ -61,8 +63,9 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="row mb-0" style="display: flex;
+                        justify-content: center;">
+                            <div class="col-md-6 offset-md-4" style="display: contents;">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
