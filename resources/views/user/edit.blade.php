@@ -122,7 +122,7 @@
                             </div>
                         </div>
 
-                        <div class="row" style="display:flex; justify-content:center;">
+                        <div class="row" style="display:flex; justify-content:center; margin-bottom: 15px;">
                             <button type="submit" class="btn btn-primary" style="width:fit-content;">
                                 {{ __('Modifier') }}
                             </button>

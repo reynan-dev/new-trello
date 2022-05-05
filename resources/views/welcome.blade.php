@@ -116,7 +116,7 @@
         @include('layouts.navbar')
 
         <div class="bg-image" style="background-image: url('https://www.codeur.com/tuto/wp-content/uploads/2022/01/pexels-roberto-nickson-2559941-1.jpg');
-            height: 87vh  ">
+            height: 87vh ; background-repeat:no-repeat; background-size:cover; ">
             <h1>Bienvenue sur Trello_Like</h1>
             <div class="box">
             @if (Route::has('register'))
