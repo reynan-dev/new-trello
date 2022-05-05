@@ -1,0 +1,45 @@
+@import url(style_root.css);
+
+nav{
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
+    padding: 5px 100px 5px 50px ;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: nowrap;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+nav .logo {
+    font-size: x-large;
+    font-weight: 700;
+    display: fle;
+}
+nav .tools {
+    position: relative;
+    display: flex;
+    width: 40%;
+    justify-content: flex-end;
+}
+
+.link-menu{
+    color: var(--color-tertiary);
+    font-weight: 600;
+    font-size: medium;
+    cursor: pointer;
+}
+.link-menu:hover{
+    text-decoration: underline;
+}
+
+.no-link, .no-link:hover {
+    text-decoration: none;
+    color: var(--color-tertiary);
+}
+
+.show {
+    display: block;
+}
