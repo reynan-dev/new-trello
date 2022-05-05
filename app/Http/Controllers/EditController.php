@@ -11,53 +11,67 @@ use Illuminate\Support\Facades\Hash;
 
 class EditController extends Controller
 {
-    public function edit()
-    {
-        $user = User::find(Auth::id());
-
-        return view('edit', compact('user'));
-    }
-
-
     // public function recup()
     //     {
     //         $user = DB::table('users')->select('name','email','password')->first();
     //         return view('edit')->with('user', $user);
     //     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
 
-        $request->validate([
+        /*$request->validate([
             'user_name' => 'required|unique:posts|max:255',
             'user_email' => 'required',
             'user_password' => 'required',
 
         
-        ],);
+        ],);*/
 
-        $user = Auth::user();
-        $user->name = $request->input('user_name');
+        $user = User::findOrFail($id);
+        $user->name = $request->input('name');
 
-        $request->validate([
+
+        /*$request->validate([
             "email_a" => "required|string|email:rfc,dns",
             "email_b" => "required|string|email:rfc,dns",
-        ]);
+        ]);*/
         
-        if ($request->input('email_a') === $request->input('email_b')) {
-            $user->email = $request->input('email_a');
-        }
-        
-        if ($request->input('user_password') !== null) {
+        if ($request->input('new-email') !== null && $request->input('new-email') === $request->input('confirm-email')) {            
+            $validation_password = true;
 
+            if(password_verify($request->input('current-password'), $user->password) !== true) {
+                $validation_password = false;
+            }
             
+            $user->email = $request->input('new-email');
+            $user->password = $user->password;
 
-            $user->password = Hash::make($request->input('user_password'));
+            $user->save();
+            return redirect()->route('user.edit', $user->id);
+
+        }
+        
+        if ($request->input('new-password') !== null  && $request->input('new-password') === $request->input('confirm-password')) {
+
+            $validation_password = true;
+
+            if(password_verify($request->input('current-password'), $user->password) !== true) {
+
+                $validation_password = false;
+            }
+
+            if ($validation_password === true){
+
+                $user->email = $user->email;
+                $user->password = Hash::make($request->input('new-password'));
+
+                $user->save();
+                return redirect()->route('user.edit', $user->id);
+            }
         }
 
-        $user->save();
-
-        return redirect()->route('edit');
+        return redirect()->route('user.edit', $user->id);
     }
 
 }

@@ -26,7 +26,7 @@
     <div id="app" class="bg-image" style="background-image: url('https://www.codeur.com/tuto/wp-content/uploads/2022/01/pexels-roberto-nickson-2559941-1.jpg'); height: 87vh; width:100%; display: flex; align-items: center; justify-content: center;">
 
 
-        <main class="py-4">
+        <main class="py-4" style="width:60%;">
             @yield('content')
         </main>
     </div>

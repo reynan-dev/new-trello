@@ -32,7 +32,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
-
 Route::get('/edit', [App\Http\Controllers\EditController::class, 'edit'])->name('edit');
-Route::put('/update', [App\Http\Controllers\EditController::class, 'update'])->name('update');
+Route::put('/update/{id}', [App\Http\Controllers\EditController::class, 'update'])->name('edit.update');
