@@ -54,7 +54,7 @@ class UserController extends Controller
 
                 $new_destination = implode('/', $dest_array);
             // fim da merda que eu fiz pra funcionar em localhost
-                
+
             // Upload Orginal Image
             $cover_img = date('YmdHis') . "." . $img->getClientOriginalExtension();
             $img->move($destination_path, $cover_img);
@@ -67,6 +67,10 @@ class UserController extends Controller
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        /**
+         * attention le mot de passe n'est pas hashé, il faudrait faire :
+         * Hash::make($request->input('password'))
+         */
         $user->password = $request->input('password');
         $user->cover_app = $request->input('cover_app');
         return redirect()->route('app.index');

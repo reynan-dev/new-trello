@@ -31,7 +31,7 @@ class CardController extends Controller
         $card = [
             'title' => $request->input('title'),
             'lists_id' => $request->input('lists_id'),
-            'user_id' => $request->input('user_id'), 
+            'user_id' => $request->input('user_id'),
         ];
 
         $new_card = Card::create($card);
@@ -56,7 +56,7 @@ class CardController extends Controller
     public function edit($id)
     {
         $card = Card::findOrFail($id);
-        return view('cards.edit', compact('card'));    
+        return view('cards.edit', compact('card'));
     }
 
     public function update(Request $request, $id)
@@ -81,7 +81,7 @@ class CardController extends Controller
 
                 $new_destination = implode('/', $dest_array);
             // fim da merda que eu fiz pra funcionar em localhost
-                
+
             // Upload Orginal Image
             $cover_img = date('YmdHis') . "." . $img->getClientOriginalExtension();
             $img->move($destination_path, $cover_img);
@@ -93,12 +93,17 @@ class CardController extends Controller
             $card->content = $request->input('content');
             $card->user_id = $request->input('user_id');
             $card->lists_id = $request->input('lists_id');
-            $card->last_change = new \DateTime();
+            $card->last_change = new \DateTime(); // pas besoin de cette ligne, Laravel gère automatique l'ajout des dates
             $card->save();
 
       return redirect()->route('cards.show', $card->id);
         }
 
+        /**
+         * La structure de la table que l'on m'a donné ne correspond pas
+         * list_id dans le create table et lists_id ici
+         * Conseil: faire des migrations pour éviter ce genre de problématique
+         */
         $card->title = $request->input('title');
         $card->content = $request->input('content');
         $card->cover_image = $request->input('cover_image');
