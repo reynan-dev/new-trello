@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Card extends Model
 {
-
+    /**
+     * vous auriez pu mettre ceci pour aller plus vite :
+     * protected $guarded = ['id'];
+     */
     protected $fillable = ['title', 'user_id', 'lists_id', 'content', 'cover_image'];
 
     public $timestamps = false;

@@ -62,3 +62,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Retour
+Excellent boulot, bravo à tous!!!
+* Attention, vous avez supprimé le fichier .env.example, il ne faut jamais faire ça car c'est le modele que vous utilisez si un jour vous souhaitez déployé en production
+* Il manque les migrations
+* Bonne idée l'ajout d'une image background ;) 
+
+Sinon le reste impec, bien joué! :)
+
+## Problèmes
+1. En voulant créer une card, erreur dans la console: lists.js:33 Uncaught TypeError: Cannot read properties of undefined (reading 'classList') at cards_create (lists.js:33:19) at HTMLDivElement.onclick (app:143:65)
+2. En voulant créer une card, erreur avec le nom d'une colonne (voir CardController)
